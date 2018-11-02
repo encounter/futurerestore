@@ -1,13 +1,9 @@
 # futurerestore
 _futurerestore is a hacked up idevicerestore wrapper, which allows manually specifying SEP and Baseband for restoring_
 
-Latest compiled version can be found here:  
-(macOS & Windows)
-https://github.com/encounter/futurerestore/releases
-
 ---
 
-# Features  
+## Features  
 * Supports the following downgrade methods
   * Prometheus 64bit devices (generator and nonce collision mode)
   * Odysseus for 32bit devices
@@ -55,12 +51,9 @@ To manually specify baseband/SEP:
   * [libplist](https://github.com/libimobiledevice/libplist)
 * ## Submodules
   Make sure these projects compile on your system (install their dependencies)
-  * [tsschecker](https://github.com/encounter/tsschecker)
+  * [tsschecker](https://github.com/s0uthwest/tsschecker)
   * [img4tool](https://github.com/tihmstar/img4tool)
-  * [idevicerestore](https://github.com/encounter/idevicerestore)
-
-# Building from source
-See [COMPILING.md](COMPILING.md)
+  * [idevicerestore](https://github.com/s0uthwest/idevicerestore)
 
 ---
 
