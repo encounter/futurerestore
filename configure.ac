@@ -1,5 +1,5 @@
 AC_PREREQ(2.64)
-AC_INIT([futurerestore], [1.0], [https://github.com/encounter/futurerestore/issues],, [https://github.com/encounter/futurerestore])
+AC_INIT([futurerestore], [1.0], [https://github.com/s0uthwest/futurerestore/issues],, [https://github.com/s0uthwest/futurerestore])
 
 AC_CANONICAL_SYSTEM
 
@@ -36,7 +36,6 @@ PKG_CHECK_MODULES(libirecovery, libirecovery >= 0.2.0)
 
 AC_PROG_CC
 AC_PROG_CXX
-
 
 # Optional module libipatcher
 AC_ARG_WITH([libipatcher],
@@ -80,7 +79,6 @@ AC_OUTPUT([
 Makefile
 futurerestore/Makefile
 ])
-
 
 echo "
 Configuration for $PACKAGE $VERSION:
