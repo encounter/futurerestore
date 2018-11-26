@@ -1,13 +1,13 @@
 # futurerestore
 _futurerestore is a hacked up idevicerestore wrapper, which allows manually specifying SEP and Baseband for restoring_
-
+Only use if you are sure what you're doing.
 ---
 
 ## Features  
 * Supports the following downgrade methods
-  * Prometheus 64bit devices (generator and nonce collision mode)
-  * Odysseus for 32bit devices
-  * Re-restoring 32bit devices to iOS 9 with @alitek123's no-nonce method
+  * Prometheus 64-bit devices (generator and APNonce collision mode);
+  * Odysseus for 32-bit devices;
+  * Re-restoring 32-bit devices to iOS 9 with @alitek123's no-nonce method (alternative — [idevicererestore](https://github.com/s0uthwest/idevicererestore).
 * Allows restoring any nonmatching signed iOS/Sep/Baseband
 
 # Help  
@@ -45,10 +45,11 @@ To manually specify baseband/SEP:
   * On Linux, [usbmuxd](https://github.com/libimobiledevice/usbmuxd) is required at runtime.
 * ## External Libs
   Make sure these are installed
-  * libzip
-  * libcurl
-  * openssl (or CommonCrypto on OSX)
-  * [libplist](https://github.com/libimobiledevice/libplist)
+  * libzip;
+  * libcurl;
+  * openssl (or CommonCrypto on macOS/OS X);
+  * [libplist](https://github.com/libimobiledevice/libplist);
+  * [libirecovery](https://github.com/s0uthwest/libirecovery).
 * ## Submodules
   Make sure these projects compile on your system (install their dependencies)
   * [tsschecker](https://github.com/s0uthwest/tsschecker)
@@ -63,7 +64,7 @@ Whenever you read "downgrade" nowadays it means you can also upgrade and re-rest
 
 ---
 
-## 1) Prometheus (64bit device) - generator method
+## 1) Prometheus (64-bit device) - generator method
 
 ### Requirements
 - Jailbreak
@@ -105,13 +106,13 @@ You can downgrade if the destination iOS is compatible with the latest signed SE
 
 ---
 
-## 2) Prometheus (64bit device) - nonce collision method
+## 2) Prometheus (64-bit device) - nonce collision method
 
 ### Requirements
-- iPhone5s or iPad Air on iOS 9.1 - 10.2
+- iPhone 5s, iPad Air, iPad mini 2 on iOS 9.1 - 10.2
 - No Jailbreak required
 - SHSH files with customly chosen APNonce
-- The shsh file needs to have one of the nonces, which the device generates a lot
+- The shsh file needs to have one of the APNnces, which the device generates a lot
 
 ### Info
 You can downgrade if the destination iOS is compatible with the latest signed SEP. You also need to have special shsh files. If you don't know what this is, you probably can **NOT** use this method!
@@ -124,24 +125,24 @@ one to speed up the process: `futurerestore -w -t t1.shsh -t t2.shsh -t t3.shsh 
 
 ---
 
-## 3) Odysseus (32bit devices)
+## 3) Odysseus (32-bit devices)
 
 ### Requirements
-- futurerestore compiled with libipatcher (odysseus support)
+- futurerestore compiled with libipatcher (Odysseus support)
 - Jailbreak or bootrom exploit (limera1n)
 - Firmware keys for the device/destination iOS must be public (check ipsw.me)
 - SHSH files for the destination iOS (OTA blobs work too!)
 
 ### Info
-If you have a jailbroken 32bit device you can downgrade to any iOS you have blobs for. You can still get OTA blobs for iOS 6.1.3 and 8.4.1 for some devices and use those.
+If you have a jailbroken 32-bit device you can downgrade to any iOS you have blobs for. You can still get OTA blobs for iOS 6.1.3 and 8.4.1 for some devices and use those.
 
 ### How to use
 1. Get device into kDFU/pwnDFU
-  * Pre-iPhone4s (limera1n devices):
+  * Pre-iPhone 4s (limera1n devices):
     * Enter pwndfu mode with redsn0w or any other tool
-  * iPhone4s and later:
+  * iPhone 4s and later:
     * Jailbreak required!
-    * Enter kDFU mode with kDFU app (cydia: repo.tihmstar.net) or by loading a pwniBSS from any existing odysseus bundle.
+    * Enter kDFU mode with kDFU app by loading a pwned iBSS from any existing odysseus bundle.
 2. Connect your device to computer in kDFU mode (or pwnDFU mode)
 3. On the computer run `futurerestore --use-pwndfu -t ticket.shsh --latest-baseband ios.ipsw`
 
@@ -157,10 +158,10 @@ If you have a jailbroken 32bit device you can downgrade to any iOS you have blob
 
 *You can use **any** odysseus bundle for this*
 
-## 4) iOS 9 Re-restore bug (found by @alitek123) (32bit devices):
+## 4) iOS 9 Re-restore bug (found by @alitek123) (32-bit devices):
 ### Requirements
 - No Jailbreak required
-- SHSH files without a nonce (noNonce APTickets)
+- SHSH files without a APNonce (noNonce APTickets)
 
 ### Info
 If you have shsh files for iOS9 which do not contain a nonce, you can restore to that firmware.
