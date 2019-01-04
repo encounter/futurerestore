@@ -247,7 +247,7 @@ int main(int argc, const char * argv[]) {
             devVals.deviceBoard = const_cast<char *>(device->hardware_model);
 
             if (flags & FLAG_LATEST_SEP) {
-                info("user specified to use latest signed sep\n");
+                info("user specified to use latest signed sep (WARNING, THIS CAN CAUSE A NON-WORKING RESTORE)\n");
                 client.loadLatestSep();
             } else if (!client.is32bit()) {
                 if (sourceIpswPath != nullptr) {
