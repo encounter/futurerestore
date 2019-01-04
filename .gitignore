@@ -19,16 +19,15 @@ libtool
 ltmain.sh
 m4
 missing
+futurerestore/.DS_Store
 futurerestore/*.o
 futurerestore/*.la
 futurerestore/*.lo
+futurerestore/config.h.bak
 futurerestore/futurerestore
 futurerestore/futurerestore.exe
 futurerestore/.libs
 futurerestore/.deps
 stamp-h1
-
-# Clion
-.idea/
-cmake-*/
-CMakeLists.txt
+.DS_Store
+external/.DS_Store

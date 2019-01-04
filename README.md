@@ -1,47 +1,15 @@
 # futurerestore
 _futurerestore is a hacked up idevicerestore wrapper, which allows manually specifying SEP and Baseband for restoring_
 
-Latest compiled version can be found here:  
-(macOS & Windows)
-https://github.com/encounter/futurerestore/releases
-
+Only use if you are sure what you're doing.
 ---
 
-# Features  
+## Features
 * Supports the following downgrade methods
-  * Prometheus 64bit devices (generator and nonce collision mode)
-  * Odysseus for 32bit devices
-  * Re-restoring 32bit devices to iOS 9 with @alitek123's no-nonce method
-* Allows restoring any nonmatching signed iOS/Sep/Baseband
-
-# Help  
-_(might become outdated):_
-
-```
-Usage: futurerestore [OPTIONS] /path/to/ipsw
-
-Options:
-
-  -t, --apticket PATH		APTicket used for restoring
-  -u, --update			Update instead of erase install (requires appropriate APTicket)
-  -w, --wait			Keep rebooting until nonce matches APTicket (nonce collision, unreliable)
-  -d, --debug			Verbose debug output (useful for error logs)
-      --latest-sep		Use latest signed sep instead of manually specifying one (may cause bad restore)
-      --latest-baseband		Use latest signed baseband instead of manually specifying one (may cause bad restore)
-      --no-baseband		Skip checks and don't flash baseband
-                   		WARNING: only use this for device without a baseband (eg. iPod or some wifi only iPads)
-
-To extract baseband/SEP automatically from IPSW:
-
-  -i, --source-ipsw PATH	Source IPSW to extract baseband/SEP from
-
-To manually specify baseband/SEP:
-
-  -b, --baseband PATH		Baseband to be flashed
-  -p, --baseband-manifest PATH	BuildManifest for requesting baseband ticket
-  -s, --sep PATH		SEP to be flashed
-  -m, --sep-manifest PATH	BuildManifest for requesting sep ticket
-```
+  * Prometheus 64-bit devices (generator and APNonce collision mode);
+  * Odysseus for 32-bit devices;
+  * Re-restoring 32-bit devices to iOS 9 with @alitek123's no-nonce method (alternative — [idevicererestore](https://github.com/s0uthwest/idevicererestore)).
+* Allows restoring any nonmatching signed iOS/SEP/Baseband.
 
 # Dependencies
 * ## Runtime
@@ -49,18 +17,21 @@ To manually specify baseband/SEP:
   * On Linux, [usbmuxd](https://github.com/libimobiledevice/usbmuxd) is required at runtime.
 * ## External Libs
   Make sure these are installed
-  * libzip
-  * libcurl
-  * openssl (or CommonCrypto on OSX)
-  * [libplist](https://github.com/libimobiledevice/libplist)
+  * [libzip](https://github.com/nih-at/libzip);
+  * [libcurl](https://github.com/curl/curl);
+  * [openssl](https://github.com/openssl/openssl) (or CommonCrypto on macOS/OS X);
+  * [libplist](https://github.com/libimobiledevice/libplist);
+  * [libirecovery](https://github.com/s0uthwest/libirecovery);
+  * [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice)
 * ## Submodules
   Make sure these projects compile on your system (install their dependencies)
-  * [tsschecker](https://github.com/encounter/tsschecker)
-  * [img4tool](https://github.com/tihmstar/img4tool)
-  * [idevicerestore](https://github.com/encounter/idevicerestore)
-
-# Building from source
-See [COMPILING.md](COMPILING.md)
+  * [jssy](https://github.com/tihmstar/jssy);
+  * [tsschecker](https://github.com/s0uthwest/tsschecker);
+  * [img4tool](https://github.com/s0uthwest/img4tool);
+  * [idevicerestore](https://github.com/s0uthwest/idevicerestore)
+  
+## Some about curl for ubuntu
+Follow [this guide](https://dev.to/jake/using-libcurl3-and-libcurl4-on-ubuntu-1804-bionic-184g) to use tsschecker on Ubuntu 18.04 (Bionic) as it requires libcurl3 which cannot coexist with libcurl4 on this OS.
 
 ---
 
@@ -70,10 +41,10 @@ Whenever you read "downgrade" nowadays it means you can also upgrade and re-rest
 
 ---
 
-## 1) Prometheus (64bit device) - generator method
+## 1) Prometheus (64-bit device) - generator method
 
 ### Requirements
-- Jailbreak
+- __Jailbreak__
 - SHSH2 files with a generator
 - nonceEnabler patch enabled
 
@@ -84,7 +55,7 @@ You can downgrade if the destination iOS is compatible with the latest signed SE
 1. Device must be jailbroken and nonceEnabler patch must be active
 2. Open shsh file and look up the generator
   * Looks like this: `<key>generator</key><string>0xde3318d224cf14a1</string>`
-3. Write the generator to device's NVRAM
+3. Write the generator to device's nvram
   * SSH into the device and run `nvram com.apple.System.boot-nonce=0xde3318d224cf14a1` to set the generator *0xde3318d224cf14a1*
   * verify with `nvram -p`
 4. Connect your device in normal mode to computer
@@ -94,31 +65,42 @@ You can downgrade if the destination iOS is compatible with the latest signed SE
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=BIMx2Y13Ukc" target="_blank"><img src="http://img.youtube.com/vi/BIMx2Y13Ukc/0.jpg" alt="Prometheus" width="240" height="180"/></a>
 *Prometheus*
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=UXxpUH71-s4" target="_blank"><img src="http://img.youtube.com/vi/UXxpUH71-s4/0.jpg" alt="Prometheus" width="240" height="180"/></a>
-*NonceEnabler*
-
 ### Recommended method to active nonceEnabler patch
-1. Get nvpatch https://github.com/Siguza/ios-kern-utils/releases/
+#### Method 1: ios-kern-utils (iOS 7.x-10.x)
+1. Install DEB-file of [ios-kern-utils](https://github.com/Siguza/ios-kern-utils/releases/) on device
 2. Run on the device `nvpatch com.apple.System.boot-nonce`
+
+#### Method 2: Using special applications
+Use utilities for setting boot-nonce — [PhœnixNonce](https://github.com/Siguza/PhoenixNonce) for iOS 9.x, [v0rtexnonce](https://github.com/arx8x/v0rtexnonce) for iOS 10.x, [nonceset1112](https://github.com/julioverne/NonceSet112) for iOS 11.0-11.1.2 and [noncereboot1131UI](https://github.com/s0uthwest/noncereboot1131UI) for iOS 11.0-11.4b3.
+
+#### Method 3: [noncereboot11](https://github.com/pwn20wndstuff/noncereboot11) for iOS 11.x.
+This CLI tool available at [pwn20wnd](https://github.com/pwn20wndstuff)'s [Cydia repo](http://xnu.science/repo). Install it and set boot-nonce with help on the binary.
 
 ### Activate tfp0 if jailbreak doesn't allow it
 #### Method 1 (if jailbroken on 9.3.x)
   * reboot
-  * reactivate jailbreak with https://jbme.qwertyoruiop.com/
+  * reactivate jailbreak with [Luca Todesco](https://github.com/kpwn)'s [JailbreakMe](https://jbme.qwertyoruiop.com/)
   * done
+  
+#### Method 2 (if jailbroken on iOS 8.0-8.1 with [Pangu](https://en.8.pangu.io))
+  * install this [untether DEB-file](http://apt.saurik.com/beta/pangu8-tfp0/io.pangu.xuanyuansword8_0.5_iphoneos-arm.deb) with included tfp0 patch
+  
+#### Method 3 (if jailbroken on iOS 7.x with [Pangu](https://en.7.pangu.io))
+  * install this [untether DEB-file](http://apt.saurik.com/debs/io.pangu.axe7_0.3_iphoneos-arm.deb) with included tfp0 patch
 
-#### Method 2
-  * Use cl0ver (https://github.com/Siguza/cl0ver)
+#### Method 4
+  * Use [cl0ver](https://github.com/Siguza/cl0ver) for iOS 9.x
 
 ---
 
-## 2) Prometheus (64bit device) - nonce collision method
+## 2) Prometheus (64-bit device) - APNonce collision method (Recovery)
 
 ### Requirements
-- iPhone5s or iPad Air on iOS 9.1 - 10.2
+- __iPhone 5s, iPad Air, iPad mini 2 on iOS 9.1 - 10.2__
 - No Jailbreak required
 - SHSH files with customly chosen APNonce
-- The shsh file needs to have one of the nonces, which the device generates a lot
+- The shsh file needs to have one of the APNnces, which the device generates a lot
+- __collisioned APNonces available in file 'nonces.txt'__
 
 ### Info
 You can downgrade if the destination iOS is compatible with the latest signed SEP. You also need to have special shsh files. If you don't know what this is, you probably can **NOT** use this method!
@@ -131,24 +113,60 @@ one to speed up the process: `futurerestore -w -t t1.shsh -t t2.shsh -t t3.shsh 
 
 ---
 
-## 3) Odysseus (32bit devices)
+## 3) Prometheus (64-bit device) - APNonce collision method (DFU)
 
 ### Requirements
-- futurerestore compiled with libipatcher (odysseus support)
+- __Devices for A7 chip (iPhone 5s, iPad Air, iPad mini 2) and some devices with A8 chip (iPod touch [6th gen]) on all iOS firmwares__
+- No Jailbreak required
+- SHSH files with customly chosen APNonce
+- The shsh file needs to have one of the APNnces, which the device generates a lot
+- __[img4tool](https://github.com/s0uthwest/img4tool) can't be used for Windows [problem with signing iBSS/iBEC], now it's TO-DO__
+- __collisioned APNonces available in file 'nonces.txt' in [TSSChecker](https://github.com/s0uthwest/TSSChecker).__
+
+### Info
+You can downgrade if the destination iOS is compatible with the latest signed SEP. You also need to have special shsh files. If you don't know what this is, you probably can **NOT** use this method!
+
+### How to use
+1. Connect your device in DFU mode
+2. Use [irecovery](https://github.com/libimobiledevice/irecovery) for check nonce booted with DFU
+3. Extract iBSS/iBEC from target firmware for downgrade (unsigned)
+4. Check DFU APNonces with [irecovery](https://github.com/libimobiledevice/irecovery) with DFU booting.
+    You can't automatically collision DFU APNonces.
+    
+    __If APNonce is not collisioned, "use hands" for DFU booting.__
+    
+    __If APNonce is successfully coliisioned, use this SHSH2 for sign iBSS/iBEC.__
+5. Use [img4tool](https://github.com/s0uthwest/img4tool) for sign iBSS:
+   `img4tool -s ticket.shsh -c iBSS.signed -p <original_iBSS>`
+6. Use [img4tool](https://github.com/s0uthwest/img4tool) for sign iBEC:
+   `img4tool -s ticket.shsh -c iBEC.signed -p <original_iBEC>`
+7. So, after signing we can boot into Recovery with [irecovery](https://github.com/libimobiledevice/irecovery):
+
+   `irecovery -f iBSS.signed` - loading iBSS
+   
+   `irecovery -f iBEC.signed` - loading iBEC
+8. So good! On the computer run `futurerestore -w -t ticket.shsh --latest-baseband --latest-sep ios.ipsw`
+
+---
+
+## 4) Odysseus (32-bit devices)
+
+### Requirements
+- futurerestore compiled with libipatcher ([Odysseus](https://dayt0n.com/articles/Odysseus) support)
 - Jailbreak or bootrom exploit (limera1n)
-- Firmware keys for the device/destination iOS must be public (check ipsw.me)
+- Firmware keys for the device/destination iOS must be public
 - SHSH files for the destination iOS (OTA blobs work too!)
 
 ### Info
-If you have a jailbroken 32bit device you can downgrade to any iOS you have blobs for. You can still get OTA blobs for iOS 6.1.3 and 8.4.1 for some devices and use those.
+If you have a jailbroken 32-bit device you can downgrade to any iOS you have blobs for. You can still get OTA blobs for iOS 6.1.3 and 8.4.1 for some devices and use those.
 
 ### How to use
 1. Get device into kDFU/pwnDFU
-  * Pre-iPhone4s (limera1n devices):
+  * Pre-iPhone 4s (limera1n devices):
     * Enter pwndfu mode with redsn0w or any other tool
-  * iPhone4s and later:
+  * iPhone 4s and later:
     * Jailbreak required!
-    * Enter kDFU mode with kDFU app (cydia: repo.tihmstar.net) or by loading a pwniBSS from any existing odysseus bundle.
+    * Enter kDFU mode by loading a pwnediBSS from any existing odysseus bundle.
 2. Connect your device to computer in kDFU mode (or pwnDFU mode)
 3. On the computer run `futurerestore --use-pwndfu -t ticket.shsh --latest-baseband ios.ipsw`
 
@@ -156,21 +174,15 @@ If you have a jailbroken 32bit device you can downgrade to any iOS you have blob
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=FQfcybsEWmM" target="_blank"><img src="http://img.youtube.com/vi/FQfcybsEWmM/0.jpg" alt="Odysseus" width="240" height="180"/></a>
 *Futurerestore + Libipatcher*
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=8Ro4g6StPeI" target="_blank"><img src="http://img.youtube.com/vi/8Ro4g6StPeI/0.jpg" alt="Odysseus" width="240" height="180"/></a>
-*kDFU App*
+*You can use **any** successfully created odysseus bundle for this*
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=Wo7mGdMcjxw" target="_blank"><img src="http://img.youtube.com/vi/Wo7mGdMcjxw/0.jpg" alt="Odysseus" width="240" height="180"/></a>
-*Enter kDFU Mode (watch up to the point where the screen goes black)*  
-
-*You can use **any** odysseus bundle for this*
-
-## 4) iOS 9 Re-restore bug (found by @alitek123) (32bit devices):
+## 5) iOS 9 Re-restore bug (found by [@alitek123](https://twitter.com/alitek123), 32-bit devices only):
 ### Requirements
 - No Jailbreak required
-- SHSH files without a nonce (noNonce APTickets)
+- __SHSH files without a APNonce (noNonce APTickets)__
 
 ### Info
-If you have shsh files for iOS9 which do not contain a nonce, you can restore to that firmware.
+If you have shsh files for iOS9 which do not contain an APNonce, you can restore to that firmware.
 
 ### How to use
 1. Connect your device in DFU mode

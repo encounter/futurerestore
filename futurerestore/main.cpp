@@ -16,7 +16,6 @@
 #include <unistd.h>
 #include <vector>
 #include "futurerestore.hpp"
-#include "all_tsschecker.h"
 #include "tsschecker.h"
 #ifdef HAVE_LIBIPATCHER
 #include <libipatcher/libipatcher.hpp>
@@ -248,7 +247,7 @@ int main(int argc, const char * argv[]) {
             devVals.deviceBoard = const_cast<char *>(device->hardware_model);
 
             if (flags & FLAG_LATEST_SEP) {
-                info("user specified to use latest signed sep\n");
+                info("user specified to use latest signed sep (WARNING, THIS CAN CAUSE A NON-WORKING RESTORE)\n");
                 client.loadLatestSep();
             } else if (!client.is32bit()) {
                 if (sourceIpswPath != nullptr) {
@@ -266,7 +265,7 @@ int main(int argc, const char * argv[]) {
             if (flags & FLAG_NO_BASEBAND){
                 printf("\nWARNING: user specified not to flash a baseband. This can make the restore fail if the device needs a baseband!\n");
                 printf("if you added this flag by mistake you can press CTRL-C now to cancel\n");
-                int c = 5;
+                int c = 10;
                 printf("continuing restore in ");
                 while (c) {
                     printf("%d ",c--);

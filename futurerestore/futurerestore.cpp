@@ -27,10 +27,8 @@ extern "C"{
 #include "locking.h"
 #include "restore.h"
 #include "tsschecker.h"
-#include "all_tsschecker.h"
 #include <libirecovery.h>
 }
-
 
 //(re)define __mkdir
 #ifdef __mkdir
@@ -195,7 +193,6 @@ plist_t futurerestore::nonceMatchesApTickets(){
             _rerestoreiOS9 = (info("Detected iOS 9 re-restore, proceeding in DFU mode\n"),true);
     }
     
-    
     unsigned char* realnonce;
     int realNonceSize = 0;
     if (_rerestoreiOS9) {
@@ -234,7 +231,6 @@ plist_t futurerestore::nonceMatchesApTickets(){
         }
     }
     
-    
     return NULL;
 }
 
@@ -261,8 +257,6 @@ const char *futurerestore::nonceMatchesIM4Ms(){
     
     return NULL;
 }
-
-
 
 void futurerestore::waitForNonce(vector<const char *>nonces, size_t nonceSize){
     if (!_didInit) reterror(-1, "did not init\n");
@@ -433,7 +427,6 @@ char *futurerestore::getiBootBuild(){
     return _ibootBuild;
 }
 
-
 pair<ptr_smart<char*>, size_t> getIPSWComponent(struct idevicerestore_client_t* client, plist_t build_identity, string component){
     ptr_smart<char *> path;
     unsigned char* component_data = NULL;
@@ -451,7 +444,6 @@ pair<ptr_smart<char*>, size_t> getIPSWComponent(struct idevicerestore_client_t* 
     
     return {(char*)component_data,component_size};
 }
-
 
 void futurerestore::enterPwnRecovery(plist_t build_identity, string bootargs){
 #ifndef HAVE_LIBIPATCHER
@@ -1557,7 +1549,6 @@ noerror:
     return pathStr;
 }
 
-
 static int zip_test_file(zip_t *za, zip_uint64_t idx, zip_uint64_t size, zip_uint32_t crc) {
     zip_file_t *zf;
     char buf[8192];
@@ -1566,7 +1557,7 @@ static int zip_test_file(zip_t *za, zip_uint64_t idx, zip_uint64_t size, zip_uin
     zip_uint32_t ncrc;
 
     if ((zf = zip_fopen_index(za, idx, 0)) == NULL) {
-        fprintf(stderr, "cannot open file %" PRIu64 " in archive: %s\n", idx, zip_strerror(za));
+     // fprintf(stderr, "cannot open file %" PRIu64 " in archive: %s\n", idx, zip_strerror(za));
         return -1;
     }
 
@@ -1579,7 +1570,7 @@ static int zip_test_file(zip_t *za, zip_uint64_t idx, zip_uint64_t size, zip_uin
     }
 
     if (n < 0) {
-        fprintf(stderr, "error reading file %" PRIu64 " in archive: %s\n", idx, zip_file_strerror(zf));
+     // fprintf(stderr, "error reading file %" PRIu64 " in archive: %s\n", idx, zip_file_strerror(zf));
         zip_fclose(zf);
         return -1;
     }
@@ -1587,11 +1578,11 @@ static int zip_test_file(zip_t *za, zip_uint64_t idx, zip_uint64_t size, zip_uin
     zip_fclose(zf);
 
     if (nsize != size) {
-        fprintf(stderr, "file %" PRIu64 ": unexpected length %" PRId64 " (should be %" PRId64 ")\n", idx, nsize, size);
+     // fprintf(stderr, "file %" PRIu64 ": unexpected length %" PRId64 " (should be %" PRId64 ")\n", idx, nsize, size);
         return -2;
     }
     if (ncrc != crc) {
-        fprintf(stderr, "file %" PRIu64 ": unexpected length %x (should be %x)\n", idx, ncrc, crc);
+     // fprintf(stderr, "file %" PRIu64 ": unexpected length %x (should be %x)\n", idx, ncrc, crc);
         return -2;
     }
 
