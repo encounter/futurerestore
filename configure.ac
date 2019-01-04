@@ -1,5 +1,5 @@
 AC_PREREQ(2.64)
-AC_INIT([futurerestore], [1.0], [https://github.com/s0uthwest/futurerestore/issues],, [https://github.com/s0uthwest/futurerestore])
+AC_INIT([futurerestore], [1.0], [https://github.com/s0uthwest/futurerestore])
 
 AC_CANONICAL_SYSTEM
 
@@ -33,6 +33,8 @@ PKG_CHECK_MODULES(libplist, libplist >= 1.12)
 PKG_CHECK_MODULES(libzip, libzip >= 0.10)
 PKG_CHECK_MODULES(libimobiledevice, libimobiledevice-1.0 >= 1.2.1)
 PKG_CHECK_MODULES(libirecovery, libirecovery >= 0.2.0)
+PKG_CHECK_MODULES(libcrypto, libcrypto >= 1.0)
+PKG_CHECK_MODULES(libusbmuxd, libusbmuxd >= 1.0)
 
 AC_PROG_CC
 AC_PROG_CXX
