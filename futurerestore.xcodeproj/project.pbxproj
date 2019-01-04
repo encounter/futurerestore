@@ -16,9 +16,17 @@
 		5604B7C5219B362E004C22EE /* libimobiledevice.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5604B7C4219B362E004C22EE /* libimobiledevice.6.dylib */; };
 		5604B7C7219B3630004C22EE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5604B7C6219B3630004C22EE /* libz.tbd */; };
 		5604B7C9219B3632004C22EE /* libcurl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5604B7C8219B3632004C22EE /* libcurl.tbd */; };
-		561C73F421973D740030617C /* jssy.c in Sources */ = {isa = PBXBuildFile; fileRef = 561C73F321973D740030617C /* jssy.c */; };
+		563DA64521BBE44900844624 /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 563DA64421BBE44900844624 /* libcrypto.3.dylib */; };
+		56520BEB21B1BA91005BD3F7 /* lzssdec.c in Sources */ = {isa = PBXBuildFile; fileRef = 56520BE921B1BA90005BD3F7 /* lzssdec.c */; };
+		56520BEF21B1BADE005BD3F7 /* endianness.h in Sources */ = {isa = PBXBuildFile; fileRef = 878587571D89D1C1008689F0 /* endianness.h */; };
+		56520BF021B1BAE6005BD3F7 /* limera1n_payload.h in Sources */ = {isa = PBXBuildFile; fileRef = 878587661D89D1C1008689F0 /* limera1n_payload.h */; };
+		56520BFA21B1BB14005BD3F7 /* jssy.c in Sources */ = {isa = PBXBuildFile; fileRef = 56520BF221B1BB13005BD3F7 /* jssy.c */; };
+		56520BFB21B1BB14005BD3F7 /* cmain.c in Sources */ = {isa = PBXBuildFile; fileRef = 56520BF321B1BB13005BD3F7 /* cmain.c */; };
+		56520BFC21B1BB14005BD3F7 /* jssy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56520BF621B1BB13005BD3F7 /* jssy.cpp */; };
+		56EF4C0921B1A8570056D405 /* libipatcher.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EF4C0821B1A8570056D405 /* libipatcher.0.dylib */; };
+		56EF4C0D21B1A8750056D405 /* libusbmuxd.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EF4C0C21B1A8750056D405 /* libusbmuxd.4.dylib */; };
+		56EF4C0F21B1A8850056D405 /* libfragmentzip.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EF4C0E21B1A8850056D405 /* libfragmentzip.0.dylib */; };
 		878587471D89CFDC008689F0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 878587461D89CFDC008689F0 /* main.cpp */; };
-		8788A6811EE8426A00138E07 /* libipatcher.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8788A6801EE8426A00138E07 /* libipatcher.0.dylib */; };
 		8799B0B21D89D99D002F4D5F /* futurerestore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8799B0B01D89D99D002F4D5F /* futurerestore.cpp */; };
 		8799B0B31D89DAE7002F4D5F /* idevicerestore.c in Sources */ = {isa = PBXBuildFile; fileRef = 8785875C1D89D1C1008689F0 /* idevicerestore.c */; settings = {COMPILER_FLAGS = "-D HAVE_CONFIG_H=1 "; }; };
 		8799B0B41D89DAF6002F4D5F /* tss.c in Sources */ = {isa = PBXBuildFile; fileRef = 878587761D89D1C1008689F0 /* tss.c */; };
@@ -43,8 +51,6 @@
 		8799B0CA1D89E371002F4D5F /* img4.c in Sources */ = {isa = PBXBuildFile; fileRef = 878587601D89D1C1008689F0 /* img4.c */; };
 		8799B0CB1D89F796002F4D5F /* tsschecker.c in Sources */ = {isa = PBXBuildFile; fileRef = 8785879F1D89D2BA008689F0 /* tsschecker.c */; };
 		8799B0CC1D89F7B9002F4D5F /* download.c in Sources */ = {isa = PBXBuildFile; fileRef = 878587981D89D2BA008689F0 /* download.c */; };
-		87F574CB1E151E97008D5C4D /* libfragmentzip.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F574CA1E151E97008D5C4D /* libfragmentzip.0.dylib */; };
-		87F574D01E151F44008D5C4D /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F574C51E151D42008D5C4D /* libcrypto.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,8 +75,21 @@
 		5604B7C4219B362E004C22EE /* libimobiledevice.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libimobiledevice.6.dylib; path = ../../../../../usr/local/lib/libimobiledevice.6.dylib; sourceTree = "<group>"; };
 		5604B7C6219B3630004C22EE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5604B7C8219B3632004C22EE /* libcurl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.tbd; path = usr/lib/libcurl.tbd; sourceTree = SDKROOT; };
-		561C73F321973D740030617C /* jssy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jssy.c; path = external/tsschecker/external/jssy/jssy/jssy.c; sourceTree = SOURCE_ROOT; };
-		561C73F521973D7C0030617C /* jssy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = jssy.h; path = external/tsschecker/external/jssy/jssy/jssy.h; sourceTree = SOURCE_ROOT; };
+		563DA64221BBE40700844624 /* all.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = all.h; sourceTree = "<group>"; };
+		563DA64321BBE41C00844624 /* all.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = all.h; path = external/tsschecker/tsschecker/all.h; sourceTree = SOURCE_ROOT; };
+		563DA64421BBE44900844624 /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = ../../../../../usr/local/lib/libcrypto.3.dylib; sourceTree = "<group>"; };
+		56520BE921B1BA90005BD3F7 /* lzssdec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lzssdec.c; sourceTree = "<group>"; };
+		56520BEA21B1BA90005BD3F7 /* lzssdec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lzssdec.h; sourceTree = "<group>"; };
+		56520BF221B1BB13005BD3F7 /* jssy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jssy.c; path = external/tsschecker/external/jssy/jssy/jssy.c; sourceTree = SOURCE_ROOT; };
+		56520BF321B1BB13005BD3F7 /* cmain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cmain.c; path = external/tsschecker/external/jssy/jssy/cmain.c; sourceTree = SOURCE_ROOT; };
+		56520BF421B1BB13005BD3F7 /* jssy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = jssy.hpp; path = external/tsschecker/external/jssy/jssy/jssy.hpp; sourceTree = SOURCE_ROOT; };
+		56520BF521B1BB13005BD3F7 /* helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = helper.h; path = external/tsschecker/external/jssy/jssy/helper.h; sourceTree = SOURCE_ROOT; };
+		56520BF621B1BB13005BD3F7 /* jssy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jssy.cpp; path = external/tsschecker/external/jssy/jssy/jssy.cpp; sourceTree = SOURCE_ROOT; };
+		56520BF721B1BB13005BD3F7 /* ptr_smart.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ptr_smart.hpp; path = external/tsschecker/external/jssy/jssy/ptr_smart.hpp; sourceTree = SOURCE_ROOT; };
+		56520BF821B1BB13005BD3F7 /* jssy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jssy.h; path = external/tsschecker/external/jssy/jssy/jssy.h; sourceTree = SOURCE_ROOT; };
+		56EF4C0821B1A8570056D405 /* libipatcher.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libipatcher.0.dylib; path = ../../../../../usr/local/lib/libipatcher.0.dylib; sourceTree = "<group>"; };
+		56EF4C0C21B1A8750056D405 /* libusbmuxd.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libusbmuxd.4.dylib; path = ../../../../../usr/local/lib/libusbmuxd.4.dylib; sourceTree = "<group>"; };
+		56EF4C0E21B1A8850056D405 /* libfragmentzip.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfragmentzip.0.dylib; path = ../../../../../usr/local/lib/libfragmentzip.0.dylib; sourceTree = "<group>"; };
 		878587431D89CFDC008689F0 /* futurerestore */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = futurerestore; sourceTree = BUILT_PRODUCTS_DIR; };
 		878587461D89CFDC008689F0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8785874F1D89D1C1008689F0 /* asr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = asr.c; sourceTree = "<group>"; };
@@ -113,25 +132,18 @@
 		878587751D89D1C1008689F0 /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
 		878587761D89D1C1008689F0 /* tss.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tss.c; sourceTree = "<group>"; };
 		878587771D89D1C1008689F0 /* tss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tss.h; sourceTree = "<group>"; };
-		8785878C1D89D1ED008689F0 /* all_img4tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all_img4tool.h; sourceTree = "<group>"; };
 		8785878E1D89D1ED008689F0 /* img4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = img4.c; sourceTree = "<group>"; };
 		8785878F1D89D1ED008689F0 /* img4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = img4.h; sourceTree = "<group>"; };
 		878587901D89D1ED008689F0 /* img4tool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = img4tool.c; sourceTree = "<group>"; };
 		878587941D89D243008689F0 /* img4tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = img4tool.h; sourceTree = "<group>"; };
 		878587951D89D290008689F0 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		878587971D89D2BA008689F0 /* all_tsschecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all_tsschecker.h; sourceTree = "<group>"; };
 		878587981D89D2BA008689F0 /* download.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = download.c; sourceTree = "<group>"; };
 		878587991D89D2BA008689F0 /* download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = download.h; sourceTree = "<group>"; };
-		8785879A1D89D2BA008689F0 /* jsmn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jsmn.c; sourceTree = "<group>"; };
-		8785879B1D89D2BA008689F0 /* jsmn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsmn.h; sourceTree = "<group>"; };
 		8785879F1D89D2BA008689F0 /* tsschecker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tsschecker.c; sourceTree = "<group>"; };
 		878587A01D89D2BA008689F0 /* tsschecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tsschecker.h; sourceTree = "<group>"; };
-		8788A6801EE8426A00138E07 /* libipatcher.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libipatcher.0.dylib; path = ../../../../usr/local/lib/libipatcher.0.dylib; sourceTree = "<group>"; };
 		8799B0B01D89D99D002F4D5F /* futurerestore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = futurerestore.cpp; sourceTree = "<group>"; };
 		8799B0B11D89D99D002F4D5F /* futurerestore.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = futurerestore.hpp; sourceTree = "<group>"; };
-		87F574C51E151D42008D5C4D /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = ../../../../usr/lib/libcrypto.dylib; sourceTree = "<group>"; };
 		87F574C71E151DA6008D5C4D /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
-		87F574CA1E151E97008D5C4D /* libfragmentzip.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfragmentzip.0.dylib; path = ../../../../usr/local/lib/libfragmentzip.0.dylib; sourceTree = "<group>"; };
 		87F574CC1E151EF8008D5C4D /* libcorecrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcorecrypto.tbd; path = usr/lib/system/libcorecrypto.tbd; sourceTree = SDKROOT; };
 		87F574CE1E151F11008D5C4D /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -141,18 +153,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56EF4C0F21B1A8850056D405 /* libfragmentzip.0.dylib in Frameworks */,
 				5604B7B9219B35EE004C22EE /* libpartialzip-1.0.0.dylib in Frameworks */,
+				56EF4C0D21B1A8750056D405 /* libusbmuxd.4.dylib in Frameworks */,
 				5604B7C3219B3626004C22EE /* libplist.3.dylib in Frameworks */,
-				8788A6811EE8426A00138E07 /* libipatcher.0.dylib in Frameworks */,
 				5604B7C7219B3630004C22EE /* libz.tbd in Frameworks */,
-				87F574D01E151F44008D5C4D /* libcrypto.dylib in Frameworks */,
 				5604B7BB219B35F8004C22EE /* libirecovery.2.dylib in Frameworks */,
 				5604B7C1219B3619004C22EE /* libz.1.2.11.dylib in Frameworks */,
+				563DA64521BBE44900844624 /* libcrypto.3.dylib in Frameworks */,
 				5604B7BF219B3611004C22EE /* libzip.5.0.dylib in Frameworks */,
-				87F574CB1E151E97008D5C4D /* libfragmentzip.0.dylib in Frameworks */,
 				5604B7C9219B3632004C22EE /* libcurl.tbd in Frameworks */,
 				5604B7C5219B362E004C22EE /* libimobiledevice.6.dylib in Frameworks */,
 				5604B7BD219B3602004C22EE /* liblzfse.dylib in Frameworks */,
+				56EF4C0921B1A8570056D405 /* libipatcher.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,8 +175,13 @@
 		561C73F221973D620030617C /* jssy */ = {
 			isa = PBXGroup;
 			children = (
-				561C73F321973D740030617C /* jssy.c */,
-				561C73F521973D7C0030617C /* jssy.h */,
+				56520BF321B1BB13005BD3F7 /* cmain.c */,
+				56520BF521B1BB13005BD3F7 /* helper.h */,
+				56520BF221B1BB13005BD3F7 /* jssy.c */,
+				56520BF621B1BB13005BD3F7 /* jssy.cpp */,
+				56520BF821B1BB13005BD3F7 /* jssy.h */,
+				56520BF421B1BB13005BD3F7 /* jssy.hpp */,
+				56520BF721B1BB13005BD3F7 /* ptr_smart.hpp */,
 			);
 			name = jssy;
 			sourceTree = "<group>";
@@ -259,11 +277,13 @@
 		8785878B1D89D1ED008689F0 /* img4tool */ = {
 			isa = PBXGroup;
 			children = (
-				8785878C1D89D1ED008689F0 /* all_img4tool.h */,
+				563DA64321BBE41C00844624 /* all.h */,
 				8785878F1D89D1ED008689F0 /* img4.h */,
 				8785878E1D89D1ED008689F0 /* img4.c */,
 				878587941D89D243008689F0 /* img4tool.h */,
 				878587901D89D1ED008689F0 /* img4tool.c */,
+				56520BE921B1BA90005BD3F7 /* lzssdec.c */,
+				56520BEA21B1BA90005BD3F7 /* lzssdec.h */,
 			);
 			name = img4tool;
 			path = external/img4tool/img4tool;
@@ -272,11 +292,9 @@
 		878587961D89D2BA008689F0 /* tsschecker */ = {
 			isa = PBXGroup;
 			children = (
-				878587971D89D2BA008689F0 /* all_tsschecker.h */,
+				563DA64221BBE40700844624 /* all.h */,
 				878587991D89D2BA008689F0 /* download.h */,
 				878587981D89D2BA008689F0 /* download.c */,
-				8785879B1D89D2BA008689F0 /* jsmn.h */,
-				8785879A1D89D2BA008689F0 /* jsmn.c */,
 				878587A01D89D2BA008689F0 /* tsschecker.h */,
 				8785879F1D89D2BA008689F0 /* tsschecker.c */,
 			);
@@ -296,12 +314,13 @@
 				5604B7BC219B3602004C22EE /* liblzfse.dylib */,
 				5604B7C2219B3626004C22EE /* libplist.3.dylib */,
 				5604B7BE219B3610004C22EE /* libzip.5.0.dylib */,
-				8788A6801EE8426A00138E07 /* libipatcher.0.dylib */,
+				56EF4C0821B1A8570056D405 /* libipatcher.0.dylib */,
+				563DA64421BBE44900844624 /* libcrypto.3.dylib */,
 				87F574CE1E151F11008D5C4D /* libSystem.tbd */,
 				87F574CC1E151EF8008D5C4D /* libcorecrypto.tbd */,
-				87F574CA1E151E97008D5C4D /* libfragmentzip.0.dylib */,
 				87F574C71E151DA6008D5C4D /* libcommonCrypto.tbd */,
-				87F574C51E151D42008D5C4D /* libcrypto.dylib */,
+				56EF4C0C21B1A8750056D405 /* libusbmuxd.4.dylib */,
+				56EF4C0E21B1A8850056D405 /* libfragmentzip.0.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -383,7 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				561C73F421973D740030617C /* jssy.c in Sources */,
+				56520BFB21B1BB14005BD3F7 /* cmain.c in Sources */,
 				8799B0C11D89DB38002F4D5F /* fls.c in Sources */,
 				8799B0B41D89DAF6002F4D5F /* tss.c in Sources */,
 				8799B0C01D89DB38002F4D5F /* fdr.c in Sources */,
@@ -395,20 +414,25 @@
 				8799B0B81D89DAFF002F4D5F /* recovery.c in Sources */,
 				8799B0B31D89DAE7002F4D5F /* idevicerestore.c in Sources */,
 				8799B0C81D89E2BD002F4D5F /* img4tool.c in Sources */,
+				56520BEF21B1BADE005BD3F7 /* endianness.h in Sources */,
 				8799B0BB1D89DB12002F4D5F /* download.c in Sources */,
+				56520BEB21B1BA91005BD3F7 /* lzssdec.c in Sources */,
 				8799B0B71D89DAFF002F4D5F /* normal.c in Sources */,
 				8799B0C31D89DB4B002F4D5F /* socket.c in Sources */,
 				8799B0C21D89DB46002F4D5F /* thread.c in Sources */,
 				8799B0B61D89DAFF002F4D5F /* dfu.c in Sources */,
 				8799B0BD1D89DB27002F4D5F /* limera1n.c in Sources */,
+				56520BF021B1BAE6005BD3F7 /* limera1n_payload.h in Sources */,
 				8799B0C51D89DB67002F4D5F /* locking.c in Sources */,
 				878587471D89CFDC008689F0 /* main.cpp in Sources */,
 				8799B0BF1D89DB38002F4D5F /* asr.c in Sources */,
+				56520BFA21B1BB14005BD3F7 /* jssy.c in Sources */,
 				8799B0BE1D89DB27002F4D5F /* restore.c in Sources */,
 				8799B0CB1D89F796002F4D5F /* tsschecker.c in Sources */,
 				8799B0C91D89E2C3002F4D5F /* img4.c in Sources */,
 				8799B0CA1D89E371002F4D5F /* img4.c in Sources */,
 				8799B0B21D89D99D002F4D5F /* futurerestore.cpp in Sources */,
+				56520BFC21B1BB14005BD3F7 /* jssy.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,10 +486,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/local/include,
+					/usr/local/include,
+					/usr/local/opt/openssl/include,
+				);
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/lib,
+					/usr/local/lib,
+					/usr/local/opt/openssl/lib,
+					"$(SDKROOT)/usr/lib/system",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.tihmstar.futurerestore;
+				PRODUCT_NAME = futurerestore;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/external/tsschecker/external/jssy/jssy";
 			};
 			name = Debug;
 		};
@@ -510,9 +549,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/local/include,
+					/usr/local/include,
+					/usr/local/opt/openssl/include,
+				);
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/lib,
+					/usr/local/lib,
+					/usr/local/opt/openssl/lib,
+					"$(SDKROOT)/usr/lib/system",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = net.tihmstar.futurerestore;
+				PRODUCT_NAME = futurerestore;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/external/tsschecker/external/jssy/jssy";
 			};
 			name = Release;
 		};
@@ -523,16 +577,17 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/opt/local/include,
+					/usr/local/opt/openssl/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					/usr/lib,
-					/usr/local/opt/openssl/lib,
 					"$(SDKROOT)/usr/lib/system",
 				);
 				OTHER_CFLAGS = "-DHAVE_LIBIPATCHER";
+				PRODUCT_BUNDLE_IDENTIFIER = net.tihmstar.futurerestore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "/usr/local/opt/openssl/include /usr/local/include $(SRCROOT)/external/tsschecker/external/jssy/jssy";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/external/tsschecker/external/jssy/jssy $(SRCROOT)/external";
 			};
 			name = Debug;
 		};
@@ -543,16 +598,17 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/opt/local/include,
+					/usr/local/opt/openssl/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					/usr/lib,
-					/usr/local/opt/openssl/lib,
 					"$(SDKROOT)/usr/lib/system",
 				);
 				OTHER_CFLAGS = "-DHAVE_LIBIPATCHER";
+				PRODUCT_BUNDLE_IDENTIFIER = net.tihmstar.futurerestore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "/usr/local/opt/openssl/include /usr/local/include $(SRCROOT)/external/tsschecker/external/jssy/jssy";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/external/tsschecker/external/jssy/jssy $(SRCROOT)/external";
 			};
 			name = Release;
 		};
