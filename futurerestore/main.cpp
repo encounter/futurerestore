@@ -16,7 +16,6 @@
 #include <unistd.h>
 #include <vector>
 #include "futurerestore.hpp"
-#include "all_tsschecker.h"
 #include "tsschecker.h"
 #ifdef HAVE_LIBIPATCHER
 #include <libipatcher/libipatcher.hpp>
