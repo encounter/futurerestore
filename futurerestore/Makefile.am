@@ -1,5 +1,5 @@
-AM_CFLAGS = $(libplist_CFLAGS) $(libzip_CFLAGS) $(libimobiledevice_CFLAGS) $(libfragmentzip_CFLAGS) $(libirecovery_CFLAGS) -I$(top_srcdir)/external/tsschecker/external/jssy/jssy -I$(top_srcdir)/external/tsschecker/tsschecker -I$(top_srcdir)/external/img4tool/img4tool -I$(top_srcdir)/external/idevicerestore/src -std=c++11
-AM_LDFLAGS = $(libplist_LIBS) $(libzip_LIBS) $(libimobiledevice_LIBS) $(libfragmentzip_LIBS) $(libirecovery_LIBS)
+AM_CFLAGS = $(libplist_CFLAGS) $(libzip_CFLAGS) $(libimobiledevice_CFLAGS) $(libirecovery_CFLAGS) $(libfragmentzip_CFLAGS) -I$(top_srcdir)/external/tsschecker/external/jssy/jssy -I$(top_srcdir)/external/tsschecker/tsschecker -I$(top_srcdir)/external/img4tool/img4tool -I$(top_srcdir)/external/idevicerestore/src -std=c++11
+AM_LDFLAGS = $(libplist_LIBS) $(libzip_LIBS) $(libimobiledevice_LIBS) $(libirecovery_LIBS) $(libfragmentzip_LIBS)
 
 if HAVE_LIBIPATCHER
 AM_LDFLAGS += $(libipatcher_LIBS)
@@ -10,7 +10,7 @@ if WIN32
 AM_CFLAGS += -DCURL_STATICLIB
 endif
 
-bin_PROGRAMS	= futurerestore
+bin_PROGRAMS = futurerestore
 futurerestore_CXXFLAGS = $(AM_CFLAGS)
 if WIN32
 futurerestore_LDFLAGS = -all-static -static-libgcc -static-libstdc++ $(AM_LDFLAGS)
